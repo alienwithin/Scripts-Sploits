@@ -2,18 +2,14 @@
 
 This repo will contain a collection of scripts that are POC's against various vulnerabilities identified. Currently here in there's: 
 
->zen_app_mobile_wp_rfu.py
-.
+** zen_app_mobile_wp_rfu.py **
 
-``` 
-This exploit caters for 5 CVE's that can be exploited
-* Zen App Mobile Native <=3.0 (CVE-2017-6104)
-* Wordpress Plugin webapp-builder v2.0 (CVE-2017-1002002)
-* Wordpress Plugin wp2android-turn-wp-site-into-android-app v1.1.4 CVE-2017-1002003)
-* Wordpress Plugin mobile-app-builder-by-wappress v1.05 CVE-2017-1002001)
-* Wordpress Plugin mobile-friendly-app-builder-by-easytouch v3.0 (CVE-2017-1002000)
-
-```
+>> This exploit caters for 5 CVE's that can be exploited
+>> * Zen App Mobile Native <=3.0 (CVE-2017-6104)
+>> * Wordpress Plugin webapp-builder v2.0 (CVE-2017-1002002)
+>> * Wordpress Plugin wp2android-turn-wp-site-into-android-app v1.1.4 CVE-2017-1002003)
+>> *  Wordpress Plugin mobile-app-builder-by-wappress v1.05 CVE-2017-1002001)
+>> * Wordpress Plugin mobile-friendly-app-builder-by-easytouch v3.0 (CVE-2017-1002000)
 
 **wp_ue_api.py**
  ``` 
