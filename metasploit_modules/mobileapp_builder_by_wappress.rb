@@ -14,7 +14,7 @@ class MetasploitModule < Msf::Exploit::Remote
 
   def initialize(info = {})
     super(update_info(info,
-      'Name'           => 'Wordpress Plugin mobile-app-builder-by-wappress v1.05 Remote File Upload Exploit',
+      'Name'           => 'Wordpress Plugin mobile app builder by wappress Remote File Upload Exploit',
       'Description'    => %q{
         This module exploits an arbitrary PHP code upload vulnerability in the
         Wordpress Plugin mobile-app-builder-by-wappress v1.05.

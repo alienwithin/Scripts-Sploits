@@ -14,7 +14,7 @@ class MetasploitModule < Msf::Exploit::Remote
 
   def initialize(info = {})
     super(update_info(info,
-      'Name'           => 'Wordpress Plugin wp2android-turn-wp-site-into-android-app Remote File Upload Exploit',
+      'Name'           => 'Wordpress Plugin wp2android Remote File Upload Exploit',
       'Description'    => %q{
         This module exploits an arbitrary PHP code upload vulnerability in the
         Wordpress Plugin wp2android-turn-wp-site-into-android-app v1.1.4.

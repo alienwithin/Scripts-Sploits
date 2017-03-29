@@ -14,7 +14,7 @@ class MetasploitModule < Msf::Exploit::Remote
 
   def initialize(info = {})
     super(update_info(info,
-      'Name'           => 'Wordpress Plugin webapp-builder v2.0 Remote File Upload Exploit',
+      'Name'           => 'Wordpress Plugin webapp builder Remote File Upload Exploit',
       'Description'    => %q{
         This module exploits an arbitrary PHP code upload vulnerability in the
         Wordpress Plugin webapp-builder v2.0.

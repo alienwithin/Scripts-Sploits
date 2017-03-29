@@ -14,7 +14,7 @@ class MetasploitModule < Msf::Exploit::Remote
 
   def initialize(info = {})
     super(update_info(info,
-      'Name'           => 'WordPress Mobile App Native <= 3.0 Remote File Upload Exploit',
+      'Name'           => 'WordPress Mobile App Native Remote File Upload Exploit',
       'Description'    => %q{
         This module exploits an arbitrary PHP code upload vulnerability in the
         WordPress Mobile App Native <= 3.0.
