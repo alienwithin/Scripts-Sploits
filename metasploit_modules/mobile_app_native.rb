@@ -42,9 +42,7 @@ end
     uri = normalize_uri(target_uri.path)
     uri << '/' if uri[-1, 1] != '/'
     checkScript = send_request_raw('uri' => normalize_uri(wordpress_url_plugins, 'zen-mobile-app-native', 'server', 'images.php'))
-    if checkScript && checkScript.code == 200
-      Exploit::CheckCode::Appears
-    end
+    return Exploit::CheckCode::Appears if checkScript && checkScript.code == 200
     Exploit::CheckCode::Safe
   end
 
