@@ -46,7 +46,9 @@ class MetasploitModule < Msf::Exploit::Remote
     uri = normalize_uri(target_uri.path)
     uri << '/' if uri[-1, 1] != '/'
     checkScript = send_request_raw('uri' => normalize_uri(wordpress_url_plugins, 'mobile-app-builder-by-wappress', 'server', 'images.php'))
-    return Exploit::CheckCode::Appears if checkScript && checkScript.code == 0o0
+    if checkScript && checkScript.code == 200
+      Exploit::CheckCode::Appears
+    end
     Exploit::CheckCode::Safe
   end
 
