@@ -21,4 +21,6 @@ This repo will contain a collection of scripts that are POC's against various vu
  
 **mimi_multidump.bat**
 >> This is a simple batch script that makes it efficient if you have multiple lsass.dmp files to dump the passwords into text files for each. 
+**MS15-034.py**
+>> This vulnerability could allow remote code execution if an attacker sends a specially crafted HTTP request to an affected Windows system. It can be achieved by abusing the Range header against IIS servers.
 
