@@ -29,30 +29,28 @@ def gwhEngine(target, wordlist, method, redirects=False):
 				if gwhStatus in error_codes_non_redir:
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
-					print target+cleanDirName		
+					print target+cleanDirName+" => "+ str(gwhStatus)		
 			elif method=="HEAD" and redirects=="True":
 				gwhRequester=requests.head(target+cleanDirName)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
-					print target+cleanDirName
+					print target+cleanDirName+" => "+ str(gwhStatus)
 			if method=="GET" and redirects=="False":
 				gwhRequester=requests.get(target+cleanDirName)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_non_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
-					print target+cleanDirName
+					print target+cleanDirName+" => "+ str(gwhStatus)
 			elif method=="GET" and redirects=="True":
 				gwhRequester=requests.get(target)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
-					print target+cleanDirName
-			else:
-			 print "Error mehn"
+					print target+cleanDirName+" => "+ str(gwhStatus)
 def giveTheWebSomeHead():
     alienParser = OptionParser(usage="usage: %prog --help for [options]",
                           version="%prog version : 1.0")
