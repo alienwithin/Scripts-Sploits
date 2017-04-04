@@ -5,7 +5,7 @@
 #         by Alienwithin
 ###########################################
 #https://example.com/foundDir1
-#https://alien-within.com/foundDir2
+#https://example.com/foundDir2
 #Results are written to a CSV file ie. found URLs and status code. 
 #HEAD is faster than GET ; if a server supports it then use that
 ##
