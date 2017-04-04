@@ -13,6 +13,7 @@ import requests
 import csv
 from optparse import OptionParser
 from urlparse import urlparse
+global gwHRequester
 def gwhEngine(target, wordlist, method, redirects=False):
     error_codes_non_redir=[200,403]
     error_codes_redir= [200,301,302,403]
@@ -36,21 +37,25 @@ def gwhEngine(target, wordlist, method, redirects=False):
 				if gwhStatus in error_codes_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
-					print target+cleanDirName+" => "+ str(gwhStatus)
-			if method=="GET" and redirects=="False":
+					print target+cleanDirName+" => "+ str(gwhStatus)	
+			if method=="GET" and redirects=="True":
 				gwhRequester=requests.get(target+cleanDirName)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_non_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
-					print target+cleanDirName+" => "+ str(gwhStatus)
-			elif method=="GET" and redirects=="True":
-				gwhRequester=requests.get(target)
+					print target+cleanDirName+" => "+ str(gwhStatus)	
+			elif method=="GET" and redirects=="False":
+				gwhRequester=requests.get(target+cleanDirName)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
 					print target+cleanDirName+" => "+ str(gwhStatus)
+			else:
+				gwhRequester=requests.get(target+cleanDirName)
+				gwhStatus=gwhRequester.status_code
+				print target+cleanDirName+" => "+ str(gwhStatus)
 def giveTheWebSomeHead():
     alienParser = OptionParser(usage="usage: %prog --help for [options]",
                           version="%prog version : 1.0")
