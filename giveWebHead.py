@@ -7,6 +7,9 @@
 #https://example.com/foundDir1
 #https://example.com/foundDir2
 #Results are written to a CSV file ie. found URLs and status code. 
+#Bad Results are also written to file in the case above the files would be : 
+#- example.com.csv => contains valid urls
+#- example.com_ignored.csv => contains urls that failed the test and status code is the reason.
 #HEAD is faster than GET ; if a server supports it then use that
 ##
 import requests
@@ -23,7 +26,9 @@ def gwhEngine(target, wordlist, method, redirects=False):
 			fullURL=urlparse(target)
 			getHostname=fullURL.netloc	
 			resultFile=open(str(getHostname)+'.csv', 'a')
+			badResults=open(str(getHostname)+'_ignored.csv', 'a')
 			csvWritingObject = csv.writer(resultFile)
+			BadResultObject=csv.writer(badResults)
 			if method=="HEAD" and redirects=="False":
 				gwhRequester=requests.head(target+cleanDirName)
 				gwhStatus=gwhRequester.status_code
@@ -56,6 +61,8 @@ def gwhEngine(target, wordlist, method, redirects=False):
 				gwhRequester=requests.get(target+cleanDirName)
 				gwhStatus=gwhRequester.status_code
 				print target+cleanDirName+" => "+ str(gwhStatus)
+				BadResultObject.writerow( (target+cleanDirName, gwhStatus) )
+				badResults.close()
 def giveTheWebSomeHead():
     alienParser = OptionParser(usage="usage: %prog --help for [options]",
                           version="%prog version : 1.0")
