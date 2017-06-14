@@ -1,4 +1,7 @@
-##
+#!/usr/bin/env python
+__author__ = "Munir Njiru"
+__email__ = "munir@alien-within.com"
+__status__ = "Production"
 #python giveWebHead.py -t https://example.com -w dirs.txt -i False -m GET
 ##########################################
 #       Give Web Head v1.0
@@ -15,7 +18,9 @@
 import requests
 import csv
 from optparse import OptionParser
-from urlparse import urlparse
+import tldextract
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
+requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 global gwHRequester
 def gwhEngine(target, wordlist, method, redirects=False):
     error_codes_non_redir=[200,403]
@@ -23,42 +28,42 @@ def gwhEngine(target, wordlist, method, redirects=False):
     with open(wordlist) as dirPerLine:
 		for dir in dirPerLine:
 			cleanDirName=str(dir.rstrip('\n'))
-			fullURL=urlparse(target)
-			getHostname=fullURL.netloc	
+			fullURL=tldextract.extract(target)
+			getHostname=fullURL.domain	
 			resultFile=open(str(getHostname)+'.csv', 'a')
 			badResults=open(str(getHostname)+'_ignored.csv', 'a')
 			csvWritingObject = csv.writer(resultFile)
 			BadResultObject=csv.writer(badResults)
 			if method=="HEAD" and redirects=="False":
-				gwhRequester=requests.head(target+cleanDirName)
+				gwhRequester=requests.head(target+cleanDirName,verify=False)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_non_redir:
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
 					print target+cleanDirName+" => "+ str(gwhStatus)		
 			elif method=="HEAD" and redirects=="True":
-				gwhRequester=requests.head(target+cleanDirName)
+				gwhRequester=requests.head(target+cleanDirName,verify=False)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
 					print target+cleanDirName+" => "+ str(gwhStatus)	
 			if method=="GET" and redirects=="True":
-				gwhRequester=requests.get(target+cleanDirName)
+				gwhRequester=requests.get(target+cleanDirName,verify=False)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_non_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
 					print target+cleanDirName+" => "+ str(gwhStatus)	
 			elif method=="GET" and redirects=="False":
-				gwhRequester=requests.get(target+cleanDirName)
+				gwhRequester=requests.get(target+cleanDirName,verify=False)
 				gwhStatus=gwhRequester.status_code
 				if gwhStatus in error_codes_redir: 
 					csvWritingObject.writerow( (target+cleanDirName, gwhStatus) )
 					resultFile.close()
 					print target+cleanDirName+" => "+ str(gwhStatus)
 			else:
-				gwhRequester=requests.get(target+cleanDirName)
+				gwhRequester=requests.get(target+cleanDirName,verify=False)
 				gwhStatus=gwhRequester.status_code
 				print target+cleanDirName+" => "+ str(gwhStatus)
 				BadResultObject.writerow( (target+cleanDirName, gwhStatus) )
