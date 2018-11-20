@@ -34,6 +34,7 @@ while True:
 	if not data:
 		print "command cannot be blank my friend"
 	elif data.strip() == "terminate":
+		client.sendall("bye buddy")
 		client.close()
 		sys.exit(0)
 	else:
