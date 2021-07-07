@@ -32,8 +32,8 @@ The decryption process is as easy as below:
 
 ![Using The Decryptor](https://raw.githubusercontent.com/alienwithin/Scripts-Sploits/master/kyocera/usage_sample.PNG)
 
-##Presumed Threat Model
+## Presumed Threat Model
                     
 ![Sample Threat Model](https://raw.githubusercontent.com/alienwithin/Scripts-Sploits/master/kyocera/workflow.PNG)
 
-##End
+## End
