@@ -1,8 +1,8 @@
 ### Exploiting Printers (Kyocera)
 This script would assisst in a pentest scenario to abuse a printer feature found in Kyocera printers to gain access to windows credentials. 
 Kyocera Printers contain an address book feature; within this feature an administrator can use one of two methods to transmit scanned documents: 
-- Configure a send to e-mail
-- Configure a windows account to login to the host 
+- Configure a send to e-mail.
+- Configure a windows account to login to the host and scan to an SMB folder.
 
 Tested on: 
 - Kyocera ECOSYS M2640idw
