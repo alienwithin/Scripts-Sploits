@@ -26,20 +26,14 @@ Pre-compiled binary for the decryptor provided just incase you're pressed for ti
 
 A sample of the address book is below: 
 
+![Address Book Sample](https://raw.githubusercontent.com/alienwithin/Scripts-Sploits/master/kyocera/printer_xml_address_book.PNG)
 
 The decryption process is as easy as below:
 
+![Using The Decryptor](https://raw.githubusercontent.com/alienwithin/Scripts-Sploits/master/kyocera/usage_sample.PNG)
 
-###Presumed Flow
+###Presumed Threat Model
                     
-```seq
-Pentester->KNetViewer: Login 
-Note left of KNetViewer: Login could be by:\n default (Admin/Admin);\nor Bruteforce
-Printer-->Pentester: Export Address Book
-Pentester-->Decryptor: Run Decryptor and \npass encrypted Password
-Decryptor->Pentester: Get Plaintext Password
-Pentester->>Domain: Gain Foothold or Administration\n\n
-Note right of Domain: Privilege Gained Depends on \nrights of the configured user!
-```
+![Sample Threat Model](https://raw.githubusercontent.com/alienwithin/Scripts-Sploits/master/kyocera/workflow.PNG)
 
 ###End
