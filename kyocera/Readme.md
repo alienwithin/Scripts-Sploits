@@ -16,8 +16,9 @@ Quite simple really you can compile with the **csc.exe** utility in your dotnet 
 an example is below: 
 `C:\Windows\Microsoft.NET\Framework64\v3.5\csc.exe KyoceraAddressBookDecryptor.cs`
 
-You also need to download KNetViewer to be able to export the addressbook from the printer. 
-Pre-compiled binary for the decryptor provided just incase you're pressed for time. :-P
+You also need to download [KNetViewer](https://www.kyoceradocumentsolutions.eu/en/products/software/kyocera-net-viewer.html) to be able to export the addressbook from the printer as it is the Network management tool for Kyocera Printers to perform maintenance operations on local and remote printers. 
+
+[Pre-compiled binary](https://github.com/alienwithin/Scripts-Sploits/blob/master/kyocera/KyoceraAddressBookDecryptor.exe?raw=true) for the decryptor provided just incase you're pressed for time. :-P
 
 ## usage
 - Navigate to the path where you have saved this exe
