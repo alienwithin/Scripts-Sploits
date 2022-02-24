@@ -17,7 +17,7 @@ OutputFolder=""#e.g."/home/hacker/project/cracked_pass/"
 function ProfileLarge(){
     for RULE in "$RuleFolder"/*; 
     do 
-        FILESIZE=$(stat -c%s "$FILE")
+        FILESIZE=$(stat -c%s "$RULE")
         if [ "$FILESIZE" -le "10240" ]
         then
         rulefile=$(basename "$RULE" | sed 's/\(.*\)\..*/\1/')
