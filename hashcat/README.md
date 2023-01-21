@@ -15,7 +15,7 @@ The windows version requires to run from the same folder as the binary hashcat.e
 
 ## Editing
 
-In both versions there are house keeping variables that are dependent on your environment. 
+In the scripts versions there are house keeping variables that are dependent on your environment. 
 
 ```mermaid
 graph LR
