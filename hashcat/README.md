@@ -6,6 +6,7 @@ Many times we struggle with looping through wordlists and rules finding a more e
 # Files
 
  - hashcat_runner.sh - Meant for linux boxes
+ - hashcat_runner_osx.sh - Meant for OSX boxes
  - hashcat_runner.ps1 - Windows Equivalent
 
 ## File Location
